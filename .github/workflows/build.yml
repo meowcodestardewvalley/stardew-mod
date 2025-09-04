@@ -17,18 +17,16 @@ jobs:
     - name: Setup .NET
       uses: actions/setup-dotnet@v3
       with:
-        dotnet-version: 6.0.x
+        dotnet-version: '5.0.x'
 
-    - name: Restore
-      run: dotnet restore
+    - name: Restore dependencies
+      run: dotnet restore AutoTreeChop.csproj
 
     - name: Build
-      run: dotnet build --configuration Release --no-restore
+      run: dotnet build AutoTreeChop.csproj -c Release --no-restore
 
-    - name: Publish DLL
-      uses: actions/upload-artifact@v4
+    - name: Upload artifact
+      uses: actions/upload-artifact@v3
       with:
-        name: mod-dll
-        path: |
-          **/bin/Release/**/*.dll
-          !**/ref/**
+        name: AutoTreeChop
+        path: bin/Release/net5.0
