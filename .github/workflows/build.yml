@@ -9,16 +9,20 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v3
+
       - name: Setup .NET
         uses: actions/setup-dotnet@v3
         with:
           dotnet-version: 6.0.x
+
       - name: Restore dependencies
-        run: dotnet restore ./stardew-mod-main/AutoTreeChop.csproj
+        run: dotnet restore ./stardew-mod-main
+
       - name: Build
-        run: dotnet build ./stardew-mod-main/AutoTreeChop.csproj --configuration Release
+        run: dotnet build ./stardew-mod-main --configuration Release
+
       - name: Upload DLL
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: ModDLL
           path: ./stardew-mod-main/bin/Release/net6.0/*.dll
