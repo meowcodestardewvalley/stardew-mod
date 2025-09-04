@@ -16,13 +16,13 @@ jobs:
           dotnet-version: 6.0.x
 
       - name: Restore dependencies
-        run: dotnet restore ./stardew-mod-main
+        run: dotnet restore ./stardew-mod/AutoTreeChop.csproj
 
       - name: Build
-        run: dotnet build ./stardew-mod-main --configuration Release
+        run: dotnet build ./stardew-mod/AutoTreeChop.csproj --configuration Release
 
       - name: Upload DLL
         uses: actions/upload-artifact@v4
         with:
           name: ModDLL
-          path: ./stardew-mod-main/bin/Release/net6.0/*.dll
+          path: ./stardew-mod/bin/Release/net6.0/*.dll
