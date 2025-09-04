@@ -3,17 +3,9 @@
     <TargetFramework>net6.0</TargetFramework>
     <AssemblyName>AutoTreeChop</AssemblyName>
     <RootNamespace>AutoTreeChop</RootNamespace>
-    <Platforms>x64</Platforms>
   </PropertyGroup>
 
   <ItemGroup>
-    <Reference Include="StardewModdingAPI">
-      <HintPath>$(GamePath)\Stardew Valley\StardewModdingAPI.dll</HintPath>
-      <Private>false</Private>
-    </Reference>
-    <Reference Include="Stardew Valley">
-      <HintPath>$(GamePath)\Stardew Valley\Stardew Valley.dll</HintPath>
-      <Private>false</Private>
-    </Reference>
+    <PackageReference Include="Pathoschild.Stardew.ModBuildConfig" Version="4.0.0" />
   </ItemGroup>
 </Project>
