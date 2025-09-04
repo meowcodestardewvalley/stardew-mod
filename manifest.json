@@ -1,0 +1,9 @@
+{
+  "Name": "Auto Tree Chop",
+  "Author": "meowco",
+  "Version": "1.0.0",
+  "Description": "Tự động chặt cây trong Stardew Valley.",
+  "UniqueID": "meowco.AutoTreeChop",
+  "EntryDll": "AutoTreeChop.dll",
+  "MinimumApiVersion": "3.0.0"
+}
