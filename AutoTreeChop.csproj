@@ -1,11 +1,7 @@
-<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Pathoschild.Stardew.ModBuildConfig">
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <AssemblyName>AutoTreeChop</AssemblyName>
     <RootNamespace>AutoTreeChop</RootNamespace>
   </PropertyGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Pathoschild.Stardew.ModBuildConfig" Version="4.0.0" />
-  </ItemGroup>
 </Project>
