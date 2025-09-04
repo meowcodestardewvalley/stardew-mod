@@ -11,7 +11,7 @@ jobs:
     runs-on: windows-latest
 
     steps:
-    - name: Checkout code
+    - name: Checkout
       uses: actions/checkout@v4
 
     - name: Setup .NET
@@ -19,14 +19,16 @@ jobs:
       with:
         dotnet-version: 6.0.x
 
-    - name: Restore dependencies
+    - name: Restore
       run: dotnet restore
 
-    - name: Build project
-      run: dotnet build --configuration Release
+    - name: Build
+      run: dotnet build --configuration Release --no-restore
 
-    - name: Upload DLL
+    - name: Publish DLL
       uses: actions/upload-artifact@v4
       with:
         name: mod-dll
-        path: bin/Release/net6.0/*.dll
+        path: |
+          **/bin/Release/**/*.dll
+          !**/ref/**
