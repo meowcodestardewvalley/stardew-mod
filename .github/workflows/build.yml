@@ -1,7 +1,9 @@
-name: Build Mod
+name: build
 
 on:
   push:
+    branches: [ main ]
+  pull_request:
     branches: [ main ]
 
 jobs:
@@ -9,21 +11,22 @@ jobs:
     runs-on: windows-latest
 
     steps:
-      - uses: actions/checkout@v3
+    - name: Checkout code
+      uses: actions/checkout@v3
 
-      - name: Setup .NET
-        uses: actions/setup-dotnet@v3
-        with:
-          dotnet-version: 6.0.x
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 6.0.x  # hoặc 8.0 nếu bạn dùng
 
-      - name: Restore dependencies
-        run: dotnet restore ./stardew-mod/AutoTreeChop.csproj
+    - name: Restore dependencies
+      run: dotnet restore ./PATH/TO/AutoTreeChop.csproj
 
-      - name: Build
-        run: dotnet build ./stardew-mod/AutoTreeChop.csproj --configuration Release --no-restore
+    - name: Build
+      run: dotnet build ./PATH/TO/AutoTreeChop.csproj --configuration Release --no-restore
 
-      - name: Upload DLL
-        uses: actions/upload-artifact@v4
-        with:
-          name: ModDLL
-          path: ./stardew-mod/**/Release/**/*.dll
+    - name: Upload DLL
+      uses: actions/upload-artifact@v3
+      with:
+        name: AutoTreeChop
+        path: PATH/TO/bin/Release/net6.0/*.dll
