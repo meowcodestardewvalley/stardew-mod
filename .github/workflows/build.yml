@@ -7,6 +7,7 @@ on:
 jobs:
   build:
     runs-on: windows-latest
+
     steps:
       - uses: actions/checkout@v3
 
@@ -19,10 +20,10 @@ jobs:
         run: dotnet restore ./stardew-mod/AutoTreeChop.csproj
 
       - name: Build
-        run: dotnet build ./stardew-mod/AutoTreeChop.csproj --configuration Release
+        run: dotnet build ./stardew-mod/AutoTreeChop.csproj --configuration Release --no-restore
 
       - name: Upload DLL
         uses: actions/upload-artifact@v4
         with:
           name: ModDLL
-          path: ./stardew-mod/bin/Release/net6.0/*.dll
+          path: ./stardew-mod/**/Release/**/*.dll
